@@ -16,38 +16,31 @@
     />
     <meta property="og:image" content="banner.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Altai the Tiger ($Altai)" />
-    <meta
-      name="twitter:description"
-      content="A tiger incident just sparked viral chaos. The next Harambe narrative is here, and it's still early."
-    />
-    <meta name="twitter:image" content="banner.jpg" />
-    <meta name="theme-color" content="#ff7a18" />
+    <meta name="theme-color" content="#1a0e08" />
     <link rel="icon" href="logo.png" />
     <link rel="apple-touch-icon" href="logo.png" />
-    <link rel="preload" as="image" href="banner.jpg" />
-    <link rel="preload" as="image" href="logo.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Outfit:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=Manrope:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
-    /> 
+    />
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
         theme: {
           extend: {
             colors: {
-              ink: "#140c09",
-              tiger: "#ff7a18",
-              ember: "#c2410c",
-              gold: "#ffc857",
-              cream: "#fff4e0",
+              ink: "#1a0e08",
+              tiger: "#ff7a1a",
+              ember: "#c4510c",
+              gold: "#f0c27a",
+              cream: "#fff6ea",
+              dusk: "#140c09",
             },
             fontFamily: {
-              display: ['"Lilita One"', "Arial Black", "Impact", "sans-serif"],
-              sans: ["Outfit", "system-ui", "sans-serif"],
+              serif: ['"Cormorant Garamond"', "Georgia", "serif"],
+              sans: ["Manrope", "system-ui", "sans-serif"],
             },
           },
         },
@@ -55,185 +48,64 @@
     </script>
     <style>
       ::selection {
-        background: #ff7a18;
-        color: #140c09;
+        background: #ff7a1a;
+        color: #1a0e08;
       }
 
-      ::-webkit-scrollbar {
-        width: 12px;
+      .halo {
+        box-shadow: 0 0 0 1px rgba(240, 194, 122, 0.7), 0 30px 80px rgba(20, 12, 9, 0.35);
       }
 
-      ::-webkit-scrollbar-track {
-        background: #140c09;
+      .rise {
+        transition: transform 0.25s ease, background-color 0.25s ease;
       }
 
-      ::-webkit-scrollbar-thumb {
-        background: #ff7a18;
-        border: 3px solid #140c09;
-      }
-
-      .tiger-stripe {
-        background-image: repeating-linear-gradient(
-          -28deg,
-          #140c09 0 10px,
-          #ff7a18 10px 20px,
-          #140c09 20px 30px,
-          #ffc857 30px 36px
-        );
-      }
-
-      .poster {
-        font-family: "Lilita One", "Arial Black", Impact, sans-serif;
-        color: #ff7a18;
-        -webkit-text-stroke: 3px #140c09;
-        paint-order: stroke fill;
-        text-shadow: 4px 4px 0 #140c09, 0 16px 28px rgba(20, 12, 9, 0.28);
-        line-height: 0.88;
-      }
-
-      .poster-gold {
-        color: #ffc857;
-      }
-
-      .stamp {
-        box-shadow: 6px 6px 0 0 #140c09;
-      }
-
-      .press {
-        box-shadow: 6px 6px 0 0 #140c09;
-        transition: transform 0.15s ease, box-shadow 0.15s ease;
-      }
-
-      .press:hover {
-        transform: translate(-2px, -2px);
-        box-shadow: 8px 8px 0 0 #140c09;
-      }
-
-      .press:active {
-        transform: translate(4px, 4px);
-        box-shadow: 0 0 0 0 #140c09;
-      }
-
-      .ticker {
-        animation: ticker 32s linear infinite;
-      }
-
-      .ticker-wrap:hover .ticker {
-        animation-play-state: paused;
-      }
-
-      .spin-slow {
-        animation: spin-slow 36s linear infinite;
-      }
-
-      .floaty {
-        animation: floaty 6s ease-in-out infinite;
-      }
-
-      @keyframes ticker {
-        from {
-          transform: translateX(0);
-        }
-        to {
-          transform: translateX(-50%);
-        }
-      }
-
-      @keyframes spin-slow {
-        to {
-          transform: rotate(360deg);
-        }
-      }
-
-      @keyframes floaty {
-        0%,
-        100% {
-          transform: translateY(0);
-        }
-        50% {
-          transform: translateY(-10px);
-        }
-      }
-
-      @media (max-width: 640px) {
-        .poster {
-          -webkit-text-stroke-width: 2px;
-          text-shadow: 3px 3px 0 #140c09, 0 12px 20px rgba(20, 12, 9, 0.25);
-        }
+      .rise:hover {
+        transform: translateY(-2px);
       }
 
       @media (prefers-reduced-motion: reduce) {
-        .ticker,
-        .spin-slow,
-        .floaty {
-          animation: none;
-        }
-
-        .press {
+        .rise {
           transition: none;
         }
       }
     </style>
   </head>
-  <body class="overflow-x-clip bg-[#d7ecff] font-sans text-ink antialiased">
+  <body class="overflow-x-clip bg-dusk font-sans text-cream antialiased">
     <div class="pointer-events-none fixed inset-0 -z-20 overflow-hidden" aria-hidden="true">
-      <img
-        src="banner.jpg"
-        alt=""
-        class="h-full w-full scale-110 object-cover object-center blur-[7px]"
-        width="2448"
-        height="816"
-        fetchpriority="high"
-      />
+      <img src="banner.jpg" alt="" class="h-full w-full scale-105 object-cover blur-md" width="2448" height="816" />
     </div>
-    <div
-      class="pointer-events-none fixed inset-0 -z-10 bg-gradient-to-b from-sky-100/30 via-white/10 to-amber-100/60"
-      aria-hidden="true"
-    ></div>
-    <div
-      class="pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(20,12,9,0.28)_100%)]"
-      aria-hidden="true"
-    ></div>
+    <div class="pointer-events-none fixed inset-0 -z-10 bg-[#140c09]/35" aria-hidden="true"></div>
+
+    <div class="fixed inset-x-0 top-0 z-50 h-[3px] bg-gradient-to-r from-dusk via-tiger to-gold" aria-hidden="true"></div>
 
     <a
       href="#content"
-      class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-xl focus:border-4 focus:border-ink focus:bg-tiger focus:px-4 focus:py-2 focus:font-bold"
+      class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-tiger focus:px-4 focus:py-2 focus:font-bold focus:text-ink"
       >Skip to content</a
     >
 
-    <header class="sticky top-0 z-30 px-3 pt-3 sm:px-5">
-      <nav
-        class="stamp mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 rounded-[1.6rem] border-4 border-ink bg-cream/90 px-3 py-2.5 backdrop-blur-md sm:px-4"
-      >
+    <header class="fixed inset-x-0 top-0 z-40 px-3 pt-4 sm:px-5">
+      <nav class="mx-auto flex max-w-6xl items-center justify-between gap-3 rounded-full border border-white/15 bg-dusk/55 px-3 py-2 shadow-[0_10px_40px_rgba(0,0,0,0.25)] backdrop-blur-xl sm:px-4">
         <a href="#top" class="flex items-center gap-2.5">
-          <img
-            src="logo.png"
-            alt=""
-            width="680"
-            height="680"
-            class="h-11 w-11 rounded-full border-[3px] border-ink object-cover"
-          />
+          <img src="logo.png" alt="" width="680" height="680" class="h-10 w-10 rounded-full object-cover ring-2 ring-gold/80" />
           <span class="leading-none">
-            <span class="block font-display text-xl text-ink sm:text-2xl">
-              Altai <span class="hidden sm:inline">the Tiger</span>
-            </span>
-            <span class="mt-0.5 block text-[10px] font-extrabold uppercase tracking-[0.22em] text-ember">$Altai</span>
+            <span class="block font-serif text-xl font-semibold tracking-wide text-cream">Altai</span>
+            <span class="block text-[10px] font-bold uppercase tracking-[0.22em] text-gold">the Tiger</span>
           </span>
         </a>
-
-        <div class="hidden items-center gap-1 md:flex">
-          <a href="#narrative" class="rounded-full px-3 py-2 text-sm font-extrabold uppercase tracking-wide hover:bg-tiger/20">Narrative</a>
-          <a href="#how-to-buy" class="rounded-full px-3 py-2 text-sm font-extrabold uppercase tracking-wide hover:bg-tiger/20">How to Buy</a>
-          <a href="#chart" class="rounded-full px-3 py-2 text-sm font-extrabold uppercase tracking-wide hover:bg-tiger/20">Chart</a>
+        <div class="hidden items-center gap-6 text-[13px] font-semibold tracking-wide text-cream/80 md:flex">
+          <a href="#story" class="hover:text-gold">The story</a>
+          <a href="#how-to-buy" class="hover:text-gold">How to Buy</a>
+          <a href="#chart" class="hover:text-gold">Chart</a>
         </div>
-
         <div class="flex items-center gap-2">
           <a
             href="https://x.com/Altaithe_Tiger"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Altai the Tiger on X"
-            class="press grid h-10 w-10 place-items-center overflow-hidden rounded-full border-4 border-ink bg-ink sm:h-11 sm:w-11"
+            class="grid h-9 w-9 place-items-center overflow-hidden rounded-full bg-black ring-1 ring-white/20"
           >
             <img src="x.png" alt="" width="554" height="554" class="h-full w-full object-cover" />
           </a>
@@ -242,16 +114,16 @@
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Altai the Tiger on Telegram"
-            class="press grid h-10 w-10 place-items-center overflow-hidden rounded-full border-4 border-ink sm:h-11 sm:w-11"
+            class="grid h-9 w-9 place-items-center overflow-hidden rounded-full ring-1 ring-white/20"
           >
             <img src="tg.png" alt="" width="975" height="997" class="h-full w-full object-cover" />
           </a>
           <a
             data-buy
-            href="https://app.uniswap.org/swap?chain=robinhood&outputCurrency=0x2e31512F7559082C9193Fc4B7781b40b583B5D92"
+            href="https://app.uniswap.org/swap?chain=robinhood&outputCurrency=TBA"
             target="_blank"
             rel="noopener noreferrer"
-            class="press inline-flex items-center rounded-xl border-4 border-ink bg-tiger px-3 py-2 font-display text-lg text-ink sm:px-4 sm:text-xl"
+            class="rise rounded-full bg-tiger px-4 py-2 text-sm font-extrabold text-ink"
             >Buy Now</a
           >
         </div>
@@ -259,446 +131,297 @@
     </header>
 
     <main id="content">
-      <section id="top" class="mx-auto grid max-w-6xl items-center gap-8 px-4 pb-6 pt-8 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:gap-6 lg:pt-14">
-        <div class="relative isolate order-2 lg:order-1">
-          <div class="absolute -inset-x-4 -inset-y-6 -z-10 rounded-[3rem] bg-cream/80 blur-2xl" aria-hidden="true"></div>
-          <p class="stamp inline-flex -rotate-2 items-center rounded-full border-4 border-ink bg-gold px-4 py-1 font-display text-lg text-ink">
-            Still early
-          </p>
-          <h1 class="poster mt-4 text-[3.15rem] sm:text-7xl lg:text-[6.4rem]">
-            <span class="block">Altai</span>
-            <span class="poster-gold block">the Tiger</span>
-          </h1>
-          <p class="mt-5 max-w-xl text-xl font-semibold leading-snug text-ink sm:text-2xl">
-            A tiger incident just sparked viral chaos. The next Harambe narrative is here, and it's still early.
-          </p>
-          <p class="mt-4 max-w-xl text-base font-medium leading-relaxed text-ink/80 sm:text-lg">
-            Symbol <span class="font-extrabold text-ink">Altai</span>. Ticker
-            <span class="font-extrabold text-ink">$Altai</span>. Bought with Robinhood ETH, while the stairs are still empty.
-          </p>
+      <section id="top" class="relative isolate flex min-h-[100svh] items-end overflow-hidden">
+        <img
+          src="banner.jpg"
+          alt="Altai the Tiger seated on the stairs of heaven"
+          width="2448"
+          height="816"
+          fetchpriority="high"
+          class="absolute inset-0 -z-10 h-full w-full object-cover object-[center_40%]"
+        />
+        <div class="absolute inset-0 -z-10 bg-gradient-to-r from-dusk/90 via-dusk/55 to-dusk/10"></div>
+        <div class="absolute inset-0 -z-10 bg-gradient-to-t from-dusk via-dusk/20 to-dusk/30"></div>
 
-          <div class="mt-6 flex max-w-xl items-center gap-3 rounded-2xl border-4 border-ink bg-cream/95 p-2 pl-4">
-            <div class="min-w-0 flex-1">
-              <p class="text-[11px] font-extrabold uppercase tracking-[0.18em] text-ember">Available CA</p>
-              <p data-ca class="select-all break-all font-mono text-sm font-bold sm:text-base">0x2e31512F7559082C9193Fc4B7781b40b583B5D92</p>
-            </div>
-            <button
-              type="button"
-              data-copy
-              aria-label="Copy contract address"
-              class="press shrink-0 rounded-xl border-4 border-ink bg-gold px-4 py-3 font-display text-xl text-ink"
-            >
-              <span data-copy-label>Copy</span>
-            </button>
-          </div>
-
-          <div class="mt-5 flex flex-wrap items-center gap-3">
-            <a
-              data-buy
-              href="https://app.uniswap.org/swap?chain=robinhood&outputCurrency=0x2e31512F7559082C9193Fc4B7781b40b583B5D92"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="press inline-flex items-center justify-center rounded-2xl border-4 border-ink bg-tiger px-6 py-3 font-display text-2xl text-ink"
-              >Buy Now <span class="ml-2 font-sans text-lg" aria-hidden="true">↗</span></a
-            >
-            <a
-              data-chart
-              href="https://dexscreener.com/robinhood/0x2e31512F7559082C9193Fc4B7781b40b583B5D92"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="press inline-flex items-center justify-center rounded-2xl border-4 border-ink bg-cream px-6 py-3 font-display text-2xl text-ink"
-              >Chart <span class="ml-2 font-sans text-lg" aria-hidden="true">↗</span></a
-            >
-          </div>
-        </div>
-
-        <div class="order-1 lg:order-2">
-          <div class="floaty relative mx-auto aspect-square w-[min(100%,22rem)]">
-            <div class="absolute inset-0 overflow-hidden">
-            <div class="spin-slow absolute inset-0">
-              <svg viewBox="0 0 200 200" class="h-full w-full" aria-hidden="true">
-                <defs>
-                  <path id="altai-ring" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0" fill="none" />
-                </defs>
-                <text fill="#140c09" font-family="Outfit, sans-serif" font-size="11.5" font-weight="800" letter-spacing="2.4">
-                  <textPath href="#altai-ring">ALTAI THE TIGER · $ALTAI · STILL EARLY · VIRAL CHAOS ·</textPath>
-                </text>
-              </svg>
-            </div>
-            </div>
-            <div class="tiger-stripe absolute inset-[18%] rounded-full p-[5px] shadow-[0_0_70px_rgba(255,200,87,0.9)]">
-              <img
-                src="logo.png"
-                alt="Altai the Tiger seated in heaven"
-                width="680"
-                height="680"
-                fetchpriority="high"
-                class="h-full w-full rounded-full border-4 border-cream object-cover"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="mx-auto max-w-6xl px-4 sm:px-6" aria-label="Project banner">
-        <div class="relative">
-          <div class="tiger-stripe rounded-[1.8rem] p-1.5 stamp">
-            <div class="overflow-hidden rounded-[1.45rem] border-4 border-ink bg-white">
-              <img
-                src="banner.jpg"
-                alt="Altai the Tiger on the stairs of heaven, above a sea of clouds"
-                width="2448"
-                height="816"
-                class="aspect-[4/3] w-full object-cover object-center sm:aspect-[2/1] lg:aspect-[3/1]"
-              />
-            </div>
-          </div>
-          <p
-            class="stamp absolute -right-1 -top-4 rotate-6 rounded-2xl border-4 border-ink bg-tiger px-4 py-2 font-display text-xl text-ink sm:right-6 sm:text-2xl"
-          >
-            Heaven sent
-          </p>
-        </div>
-
-        <dl class="relative z-10 mx-auto -mt-6 grid max-w-5xl grid-cols-2 gap-3 md:-mt-10 md:grid-cols-4">
-          <div class="stamp rounded-2xl border-4 border-ink bg-cream px-4 py-3">
-            <dt class="text-[11px] font-extrabold uppercase tracking-[0.16em] text-ember">Symbol</dt>
-            <dd class="font-display text-3xl leading-none text-ink">Altai</dd>
-          </div>
-          <div class="stamp rounded-2xl border-4 border-ink bg-cream px-4 py-3">
-            <dt class="text-[11px] font-extrabold uppercase tracking-[0.16em] text-ember">Ticker</dt>
-            <dd class="font-display text-3xl leading-none text-ink">$Altai</dd>
-          </div>
-          <div class="stamp rounded-2xl border-4 border-ink bg-cream px-4 py-3">
-            <dt class="text-[11px] font-extrabold uppercase tracking-[0.16em] text-ember">Chain</dt>
-            <dd class="font-display text-3xl leading-none text-ink">Robinhood</dd>
-          </div>
-          <div class="stamp rounded-2xl border-4 border-ink bg-gold px-4 py-3">
-            <dt class="text-[11px] font-extrabold uppercase tracking-[0.16em] text-ember">Pay with</dt>
-            <dd class="font-display text-3xl leading-none text-ink">ETH</dd>
-          </div>
-        </dl>
-      </section>
-
-      <div class="ticker-wrap mt-12" aria-hidden="true">
-        <div class="h-3 tiger-stripe"></div>
-        <div class="overflow-hidden bg-ink py-3">
-          <div class="ticker flex w-max">
-            <p class="whitespace-nowrap px-4 font-display text-xl tracking-wide text-gold sm:text-2xl">
-              $ALTAI ◆ ALTAI THE TIGER ◆ VIRAL CHAOS ◆ THE NEXT HARAMBE NARRATIVE ◆ STILL EARLY ◆ ROBINHOOD ETH ◆
+        <div class="mx-auto grid w-full max-w-6xl items-end gap-10 px-5 pb-16 pt-32 sm:px-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:pb-24 lg:pt-28">
+          <div>
+            <p class="text-[11px] font-bold uppercase tracking-[0.32em] text-gold">Robinhood Chain · Symbol Altai</p>
+            <h1 class="mt-4 font-serif text-[5.2rem] font-medium leading-[0.82] text-cream sm:text-8xl lg:text-[7.4rem]">
+              Altai
+              <span class="mt-1 block font-serif text-[2.6rem] font-medium italic text-gold sm:text-5xl lg:text-6xl">the Tiger</span>
+            </h1>
+            <p class="mt-6 max-w-xl font-serif text-2xl font-medium italic leading-snug text-cream/95 sm:text-3xl">
+              A tiger incident just sparked viral chaos. The next Harambe narrative is here, and it's still early.
             </p>
-            <p class="whitespace-nowrap px-4 font-display text-xl tracking-wide text-gold sm:text-2xl">
-              $ALTAI ◆ ALTAI THE TIGER ◆ VIRAL CHAOS ◆ THE NEXT HARAMBE NARRATIVE ◆ STILL EARLY ◆ ROBINHOOD ETH ◆
+            <p class="mt-5 max-w-lg text-sm font-medium leading-relaxed text-cream/75 sm:text-base">
+              The picture was taken above the clouds. The name that stuck is Altai. $Altai is how you mark it, with ETH on Robinhood Chain, before the stairs fill up.
             </p>
-          </div>
-        </div>
-        <div class="h-3 tiger-stripe"></div>
-      </div>
 
-      <section id="narrative" class="scroll-mt-28 px-4 py-16 sm:px-6 md:py-24">
-        <div class="relative mx-auto max-w-6xl">
-          <svg class="pointer-events-none absolute -left-2 top-0 hidden h-20 w-20 -rotate-12 text-tiger/50 lg:block" viewBox="0 0 64 64" fill="currentColor" aria-hidden="true">
-            <ellipse cx="32" cy="42" rx="14" ry="12" />
-            <ellipse cx="14" cy="26" rx="6" ry="8" />
-            <ellipse cx="26" cy="16" rx="6" ry="8" />
-            <ellipse cx="40" cy="16" rx="6" ry="8" />
-            <ellipse cx="50" cy="28" rx="5.5" ry="7.5" />
-          </svg>
-          <div class="grid items-start gap-8 lg:grid-cols-[1.15fr_0.85fr]">
-            <div class="relative">
-              <div class="absolute -inset-6 -z-10 rounded-[3rem] bg-cream/75 blur-2xl" aria-hidden="true"></div>
-              <p class="text-xs font-extrabold uppercase tracking-[0.28em] text-ember">The narrative</p>
-              <h2 class="poster mt-3 max-w-xl text-5xl sm:text-6xl">The next Harambe narrative</h2>
-              <div class="mt-6 max-w-xl space-y-4 text-lg font-medium leading-relaxed text-ink/85">
-                <p>
-                  Harambe became a language. One moment left the news, entered the timeline, and people are still saying the name. Altai is that kind of story, with the stripes still fresh and the crowd still late.
-                </p>
-                <p>
-                  The clips multiplied. The jokes locked in. A symbol showed up before a market did. $Altai is that symbol on Robinhood Chain, bought with Robinhood ETH, while the stairs in the clouds are still mostly empty.
-                </p>
-              </div>
-            </div>
-
-            <blockquote class="stamp rounded-[1.8rem] border-4 border-ink bg-cream/95 p-6 sm:p-8">
-              <p class="font-display text-6xl leading-none text-tiger" aria-hidden="true">“</p>
-              <p class="text-2xl font-extrabold leading-snug text-ink sm:text-[1.7rem]">
-                A tiger incident just sparked viral chaos. The next Harambe narrative is here, and it's still early.
-              </p>
-              <footer class="mt-5 text-sm font-extrabold uppercase tracking-[0.18em] text-ember">Altai the Tiger · $Altai</footer>
-            </blockquote>
-          </div>
-
-          <div class="mt-8 grid gap-4 md:grid-cols-3">
-            <article class="stamp rounded-[1.6rem] border-4 border-ink bg-cream/95 p-5">
-              <p class="font-display text-4xl leading-none text-tiger">01</p>
-              <h3 class="mt-3 font-display text-3xl text-ink">Viral chaos</h3>
-              <p class="mt-2 font-medium leading-relaxed text-ink/80">A tiger incident hit the timeline, and the timeline hit back. Noise first. A name second.</p>
-            </article>
-            <article class="stamp rounded-[1.6rem] border-4 border-ink bg-cream/95 p-5 md:translate-y-3">
-              <p class="font-display text-4xl leading-none text-tiger">02</p>
-              <h3 class="mt-3 font-display text-3xl text-ink">The symbol</h3>
-              <p class="mt-2 font-medium leading-relaxed text-ink/80">Altai. Short enough to yell, striped enough to stick. This is the name the story keeps.</p>
-            </article>
-            <article class="stamp rounded-[1.6rem] border-4 border-ink bg-gold/95 p-5 md:translate-y-6">
-              <p class="font-display text-4xl leading-none text-ink">03</p>
-              <h3 class="mt-3 font-display text-3xl text-ink">Still early</h3>
-              <p class="mt-2 font-medium leading-relaxed text-ink/80">The next Harambe narrative does not introduce itself after the top. It introduces itself here.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="how-to-buy" class="scroll-mt-28 px-4 pb-16 sm:px-6 md:pb-24">
-        <div class="stamp relative mx-auto max-w-6xl overflow-hidden rounded-[2rem] border-4 border-ink bg-cream/90 p-5 backdrop-blur-md sm:p-8 md:p-10">
-          <svg class="pointer-events-none absolute right-6 top-6 hidden h-16 w-24 text-ink/80 md:block" viewBox="0 0 96 48" fill="none" aria-hidden="true">
-            <path d="M8 40 C18 24, 24 12, 28 6" stroke="currentColor" stroke-width="4" stroke-linecap="round" />
-            <path d="M32 42 C42 22, 48 12, 52 4" stroke="currentColor" stroke-width="4" stroke-linecap="round" />
-            <path d="M56 42 C68 22, 74 14, 80 6" stroke="currentColor" stroke-width="4" stroke-linecap="round" />
-          </svg>
-          <p class="text-xs font-extrabold uppercase tracking-[0.28em] text-ember">Robinhood ETH</p>
-          <h2 class="poster mt-2 text-6xl sm:text-7xl">How to Buy</h2>
-          <p class="mt-4 max-w-2xl text-lg font-medium leading-relaxed text-ink/80">
-            Four steps to buy $Altai with ETH on Robinhood Chain. Buy Now opens Uniswap with the token already selected.
-          </p>
-
-          <ol class="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4 xl:pt-20">
-            <li class="flex h-full flex-col overflow-hidden rounded-[1.5rem] border-4 border-ink bg-white/80">
-              <div class="h-3 tiger-stripe"></div>
-              <div class="flex flex-1 flex-col p-5">
-                <p class="font-display text-5xl leading-none text-tiger">01</p>
-                <h3 class="mt-3 font-display text-[1.7rem] leading-none text-ink">Connect a wallet</h3>
-                <p class="mt-3 font-medium leading-relaxed text-ink/75">
-                  Open Robinhood Wallet, MetaMask, or any EVM wallet and switch to Robinhood Chain. Chain ID is 4663. Robinhood Wallet already includes the network.
-                </p>
-              </div>
-            </li>
-            <li class="flex h-full flex-col overflow-hidden rounded-[1.5rem] border-4 border-ink bg-white/80 xl:-translate-y-6">
-              <div class="h-3 tiger-stripe"></div>
-              <div class="flex flex-1 flex-col p-5">
-                <p class="font-display text-5xl leading-none text-tiger">02</p>
-                <h3 class="mt-3 font-display text-[1.7rem] leading-none text-ink">Get Robinhood ETH</h3>
-                <p class="mt-3 font-medium leading-relaxed text-ink/75">
-                  Bridge ETH onto Robinhood Chain from Uniswap, or through the Arbitrum portal by selecting Robinhood Chain. That ETH is what you swap. A little of it also pays gas.
-                </p>
-              </div>
-            </li>
-            <li class="flex h-full flex-col overflow-hidden rounded-[1.5rem] border-4 border-ink bg-white/80 xl:-translate-y-12">
-              <div class="h-3 tiger-stripe"></div>
-              <div class="flex flex-1 flex-col p-5">
-                <p class="font-display text-5xl leading-none text-tiger">03</p>
-                <h3 class="mt-3 font-display text-[1.7rem] leading-none text-ink">Open the swap</h3>
-                <p class="mt-3 font-medium leading-relaxed text-ink/75">
-                  Press Buy Now. Uniswap opens on Robinhood Chain with $Altai as the token you receive. Match it to the contract on this page before you trade.
-                </p>
-              </div>
-            </li>
-            <li class="flex h-full flex-col overflow-hidden rounded-[1.5rem] border-4 border-ink bg-gold xl:-translate-y-[4.5rem]">
-              <div class="h-3 tiger-stripe"></div>
-              <div class="flex flex-1 flex-col p-5">
-                <p class="font-display text-5xl leading-none text-ink">04</p>
-                <h3 class="mt-3 font-display text-[1.7rem] leading-none text-ink">Swap and confirm</h3>
-                <p class="mt-3 font-medium leading-relaxed text-ink/75">
-                  Enter the Robinhood ETH you want to spend, read the quote and price impact, then confirm in your wallet. Leave a pinch of ETH so the transaction can clear.
-                </p>
-              </div>
-            </li>
-          </ol>
-
-          <div class="mt-8 rounded-[1.5rem] border-4 border-ink bg-ink p-5 text-cream sm:p-6">
-            <p class="font-display text-3xl text-gold">Add Robinhood Chain</p>
-            <p class="mt-2 max-w-3xl text-sm font-medium leading-relaxed text-cream/80 sm:text-base">
-              If your wallet does not list the network yet, add it with the details below. The gas token is ETH.
-            </p>
-            <dl class="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              <div>
-                <dt class="text-[11px] font-extrabold uppercase tracking-[0.16em] text-tiger">Network</dt>
-                <dd class="mt-1 font-semibold">Robinhood Chain</dd>
-              </div>
-              <div>
-                <dt class="text-[11px] font-extrabold uppercase tracking-[0.16em] text-tiger">Chain ID</dt>
-                <dd class="mt-1 font-mono text-lg font-bold">4663</dd>
-              </div>
-              <div>
-                <dt class="text-[11px] font-extrabold uppercase tracking-[0.16em] text-tiger">Currency</dt>
-                <dd class="mt-1 font-semibold">ETH</dd>
-              </div>
-              <div>
-                <dt class="text-[11px] font-extrabold uppercase tracking-[0.16em] text-tiger">Explorer</dt>
-                <dd class="mt-1">
-                  <a
-                    href="https://robinhoodchain.blockscout.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="font-bold text-gold underline decoration-2 underline-offset-2"
-                    >Blockscout</a
-                  >
-                </dd>
-              </div>
-              <div class="sm:col-span-2 lg:col-span-4">
-                <dt class="text-[11px] font-extrabold uppercase tracking-[0.16em] text-tiger">RPC</dt>
-                <dd class="mt-1 break-all font-mono text-sm sm:text-base">https://rpc.mainnet.chain.robinhood.com</dd>
-              </div>
-            </dl>
-          </div>
-
-          <div class="mt-6 grid gap-4 lg:grid-cols-[1fr_auto] lg:items-center">
-            <div class="flex items-center gap-3 rounded-2xl border-4 border-ink bg-white/80 p-2 pl-4">
+            <div class="mt-7 flex max-w-xl items-center gap-3 rounded-2xl border border-white/15 bg-dusk/45 p-2 pl-4 backdrop-blur-md">
               <div class="min-w-0 flex-1">
-                <p class="text-[11px] font-extrabold uppercase tracking-[0.18em] text-ember">Available CA</p>
-                <p data-ca class="select-all break-all font-mono text-sm font-bold sm:text-base">0x2e31512F7559082C9193Fc4B7781b40b583B5D92</p>
+                <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-gold">Available CA</p>
+                <p data-ca class="select-all break-all font-mono text-sm font-semibold text-cream">TBA</p>
               </div>
               <button
                 type="button"
                 data-copy
                 aria-label="Copy contract address"
-                class="press shrink-0 rounded-xl border-4 border-ink bg-gold px-4 py-3 font-display text-xl text-ink"
+                class="rise shrink-0 rounded-xl bg-gold px-4 py-2.5 text-sm font-extrabold text-ink"
               >
                 <span data-copy-label>Copy</span>
               </button>
             </div>
-            <div class="flex flex-wrap gap-3">
+
+            <div class="mt-5 flex flex-wrap gap-3">
               <a
                 data-buy
-                href="https://app.uniswap.org/swap?chain=robinhood&outputCurrency=0x2e31512F7559082C9193Fc4B7781b40b583B5D92"
+                href="https://app.uniswap.org/swap?chain=robinhood&outputCurrency=TBA"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="press inline-flex flex-1 items-center justify-center rounded-2xl border-4 border-ink bg-tiger px-6 py-3 font-display text-2xl text-ink sm:flex-none"
-                >Buy Now <span class="ml-2 font-sans text-lg" aria-hidden="true">↗</span></a
+                class="rise inline-flex items-center rounded-full bg-tiger px-6 py-3 text-sm font-extrabold text-ink"
+                >Buy Now</a
               >
               <a
                 data-chart
-                href="https://dexscreener.com/robinhood/0x2e31512F7559082C9193Fc4B7781b40b583B5D92"
+                href="https://dexscreener.com/robinhood/TBA"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="press inline-flex flex-1 items-center justify-center rounded-2xl border-4 border-ink bg-white px-6 py-3 font-display text-2xl text-ink sm:flex-none"
-                >Chart <span class="ml-2 font-sans text-lg" aria-hidden="true">↗</span></a
+                class="rise inline-flex items-center rounded-full border border-white/30 bg-white/10 px-6 py-3 text-sm font-extrabold text-cream backdrop-blur-md"
+                >Chart</a
               >
+            </div>
+          </div>
+
+          <div class="mx-auto w-[min(100%,18rem)] lg:w-[22rem]">
+            <div class="halo aspect-square rounded-full bg-gradient-to-b from-gold via-tiger to-gold p-[3px]">
+              <img
+                src="logo.png"
+                alt="Altai the Tiger"
+                width="680"
+                height="680"
+                class="h-full w-full rounded-full object-cover"
+              />
+            </div>
+            <p class="mt-4 text-center text-[11px] font-bold uppercase tracking-[0.28em] text-gold">$Altai</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="story" class="scroll-mt-28 px-5 py-20 sm:px-8 md:py-28">
+        <div class="mx-auto grid max-w-6xl items-start gap-12 lg:grid-cols-[0.9fr_1.1fr]">
+          <div class="lg:sticky lg:top-28">
+            <p class="text-[11px] font-bold uppercase tracking-[0.32em] text-gold">The story</p>
+            <h2 class="mt-3 font-serif text-5xl font-medium leading-[0.95] text-cream sm:text-6xl">
+              A name the <span class="italic text-gold">timeline</span> refused to drop
+            </h2>
+            <p class="mt-6 max-w-md text-sm leading-relaxed text-cream/75 sm:text-base">
+              Some moments leave the news and become a way people talk. This one is still in the first hour of that life.
+            </p>
+          </div>
+
+          <div class="space-y-6 text-base font-medium leading-relaxed text-cream/85 sm:text-lg">
+            <p>
+              Harambe became a language. One day turned into a name people still reach for when the internet refuses to forget. The second life of a story is always larger than the day it started, and it always looks obvious only afterward.
+            </p>
+            <p>
+              A tiger just opened that door. The incident moved faster than any caption. Clips stacked, jokes hardened, and the argument never really sat down. The chaos is already here. The symbol is still being learned, which is another way of saying it is early.
+            </p>
+            <p>
+              Altai is the name that stayed. $Altai is the mark for it on Robinhood Chain, bought with Robinhood ETH. The stairs in the banner are empty on purpose. Most people have not climbed them.
+            </p>
+
+            <ol class="grid gap-4 pt-4 sm:grid-cols-3">
+              <li class="rounded-3xl border border-white/10 bg-white/10 p-5 backdrop-blur-md">
+                <p class="font-serif text-4xl italic text-gold">01</p>
+                <h3 class="mt-2 font-serif text-2xl text-cream">The incident</h3>
+                <p class="mt-2 text-sm leading-relaxed text-cream/70">One tiger. One moment. A timeline that would not let go.</p>
+              </li>
+              <li class="rounded-3xl border border-white/10 bg-white/10 p-5 backdrop-blur-md">
+                <p class="font-serif text-4xl italic text-gold">02</p>
+                <h3 class="mt-2 font-serif text-2xl text-cream">The name</h3>
+                <p class="mt-2 text-sm leading-relaxed text-cream/70">Altai. Short enough to travel, striped enough to stay.</p>
+              </li>
+              <li class="rounded-3xl border border-tiger/40 bg-tiger/15 p-5 backdrop-blur-md">
+                <p class="font-serif text-4xl italic text-gold">03</p>
+                <h3 class="mt-2 font-serif text-2xl text-cream">The hour</h3>
+                <p class="mt-2 text-sm leading-relaxed text-cream/70">The next Harambe narrative, met before the crowd learns the words.</p>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="how-to-buy" class="scroll-mt-28 px-5 pb-20 sm:px-8 md:pb-28">
+        <div class="mx-auto max-w-6xl overflow-hidden rounded-[2rem] border border-white/10 bg-cream text-ink shadow-[0_30px_80px_rgba(20,12,9,0.28)]">
+          <div class="grid lg:grid-cols-[0.85fr_1.15fr]">
+            <div class="relative min-h-[16rem] overflow-hidden bg-dusk lg:min-h-full">
+              <img src="banner.jpg" alt="" class="h-full w-full object-cover object-center opacity-80" width="2448" height="816" />
+              <div class="absolute inset-0 bg-gradient-to-t from-dusk via-dusk/20 to-transparent"></div>
+              <div class="absolute inset-x-0 bottom-0 p-8">
+                <p class="text-[11px] font-bold uppercase tracking-[0.28em] text-gold">Robinhood ETH</p>
+                <h2 class="mt-2 font-serif text-5xl font-medium leading-none text-cream sm:text-6xl">How to Buy</h2>
+                <p class="mt-3 max-w-sm text-sm leading-relaxed text-cream/75">Four moves from an empty wallet to $Altai. You spend ETH on Robinhood Chain.</p>
+              </div>
+            </div>
+
+            <div class="px-6 py-8 sm:px-10 sm:py-10">
+              <ol class="space-y-8">
+                <li class="grid grid-cols-[auto_1fr] gap-4">
+                  <span class="font-serif text-4xl italic leading-none text-tiger">01</span>
+                  <div>
+                    <h3 class="font-serif text-3xl leading-none">Connect on Robinhood Chain</h3>
+                    <p class="mt-2 text-sm leading-relaxed text-ink/70">
+                      Open Robinhood Wallet, MetaMask, or any EVM wallet and switch to Robinhood Chain. The chain ID is 4663. Robinhood Wallet already lists the network.
+                    </p>
+                  </div>
+                </li>
+                <li class="grid grid-cols-[auto_1fr] gap-4">
+                  <span class="font-serif text-4xl italic leading-none text-tiger">02</span>
+                  <div>
+                    <h3 class="font-serif text-3xl leading-none">Bring Robinhood ETH</h3>
+                    <p class="mt-2 text-sm leading-relaxed text-ink/70">
+                      Bridge ETH onto Robinhood Chain from Uniswap, or through the Arbitrum portal with Robinhood Chain selected. That ETH is what you swap. A little of it also pays gas.
+                    </p>
+                  </div>
+                </li>
+                <li class="grid grid-cols-[auto_1fr] gap-4">
+                  <span class="font-serif text-4xl italic leading-none text-tiger">03</span>
+                  <div>
+                    <h3 class="font-serif text-3xl leading-none">Open the $Altai swap</h3>
+                    <p class="mt-2 text-sm leading-relaxed text-ink/70">
+                      Press Buy Now. Uniswap opens on Robinhood Chain with $Altai as the token you receive. Match it against the contract copied from this page.
+                    </p>
+                  </div>
+                </li>
+                <li class="grid grid-cols-[auto_1fr] gap-4">
+                  <span class="font-serif text-4xl italic leading-none text-tiger">04</span>
+                  <div>
+                    <h3 class="font-serif text-3xl leading-none">Confirm the trade</h3>
+                    <p class="mt-2 text-sm leading-relaxed text-ink/70">
+                      Enter the Robinhood ETH you want to spend, read the quote and the price impact, then confirm in your wallet. Leave a pinch of ETH so the transaction can clear.
+                    </p>
+                  </div>
+                </li>
+              </ol>
+
+              <dl class="mt-8 grid gap-4 border-t border-ink/10 pt-6 text-sm sm:grid-cols-2">
+                <div>
+                  <dt class="text-[10px] font-bold uppercase tracking-[0.18em] text-ember">Network</dt>
+                  <dd class="mt-1 font-semibold">Robinhood Chain · ID 4663 · ETH</dd>
+                </div>
+                <div>
+                  <dt class="text-[10px] font-bold uppercase tracking-[0.18em] text-ember">Explorer</dt>
+                  <dd class="mt-1">
+                    <a
+                      href="https://robinhoodchain.blockscout.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="font-semibold text-ember underline decoration-tiger/40 underline-offset-4"
+                      >robinhoodchain.blockscout.com</a
+                    >
+                  </dd>
+                </div>
+                <div class="sm:col-span-2">
+                  <dt class="text-[10px] font-bold uppercase tracking-[0.18em] text-ember">RPC, if the network is missing</dt>
+                  <dd class="mt-1 break-all font-mono text-[13px]">https://rpc.mainnet.chain.robinhood.com</dd>
+                </div>
+              </dl>
+
+              <div class="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
+                <div class="flex min-w-0 flex-1 items-center gap-3 rounded-2xl border border-ink/10 bg-white px-4 py-2">
+                  <div class="min-w-0 flex-1">
+                    <p class="text-[10px] font-bold uppercase tracking-[0.18em] text-ember">Available CA</p>
+                    <p data-ca class="select-all break-all font-mono text-sm font-semibold">TBA</p>
+                  </div>
+                  <button
+                    type="button"
+                    data-copy
+                    aria-label="Copy contract address"
+                    class="rise shrink-0 rounded-xl bg-ink px-4 py-2 text-sm font-extrabold text-gold"
+                  >
+                    <span data-copy-label>Copy</span>
+                  </button>
+                </div>
+                <a
+                  data-buy
+                  href="https://app.uniswap.org/swap?chain=robinhood&outputCurrency=TBA"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="rise inline-flex items-center justify-center rounded-full bg-tiger px-6 py-3 text-sm font-extrabold text-ink"
+                  >Buy Now</a
+                >
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="chart" class="scroll-mt-28 px-4 pb-16 sm:px-6 md:pb-24">
+      <section id="chart" class="scroll-mt-28 px-5 pb-28 sm:px-8">
         <div class="mx-auto max-w-6xl">
-          <div class="relative mb-6 max-w-3xl">
-            <div class="absolute -inset-6 -z-10 rounded-[3rem] bg-cream/75 blur-2xl" aria-hidden="true"></div>
-            <p class="text-xs font-extrabold uppercase tracking-[0.28em] text-ember">Dexscreener</p>
-            <h2 class="poster mt-2 text-6xl sm:text-7xl">Chart</h2>
-            <p class="mt-4 text-lg font-medium leading-relaxed text-ink/80">
-              $Altai on Robinhood Chain. The embed follows the contract. While the CA is 0x2e31512F7559082C9193Fc4B7781b40b583B5D92, the candles show up the moment the pair is indexed.
-            </p>
+          <div class="mb-8 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p class="text-[11px] font-bold uppercase tracking-[0.32em] text-gold">Dexscreener</p>
+              <h2 class="mt-2 font-serif text-5xl font-medium leading-none text-cream sm:text-6xl">Chart</h2>
+              <p class="mt-4 max-w-xl text-sm leading-relaxed text-cream/75 sm:text-base">
+                $Altai against Robinhood ETH. The embed follows the contract. While the CA is TBA, the candles appear once the pair is indexed.
+              </p>
+            </div>
+            <a
+              data-chart
+              href="https://dexscreener.com/robinhood/TBA"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="rise inline-flex w-fit items-center rounded-full border border-gold/50 px-6 py-3 text-sm font-extrabold text-gold"
+              >Open chart</a
+            >
           </div>
 
-          <div class="tiger-stripe stamp rounded-[1.8rem] p-1.5">
-            <div class="rounded-[1.45rem] border-4 border-ink bg-ink p-3 sm:p-4">
-              <div class="mb-3 flex flex-col gap-3 px-1 sm:flex-row sm:items-center sm:justify-between">
-                <div>
-                  <p class="font-display text-2xl text-cream sm:text-3xl">Altai / Robinhood ETH</p>
-                  <p class="text-sm font-semibold text-gold">dexscreener.com/robinhood</p>
-                </div>
-                <a
-                  data-chart
-                  href="https://dexscreener.com/robinhood/0x2e31512F7559082C9193Fc4B7781b40b583B5D92"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="press inline-flex items-center justify-center rounded-xl border-4 border-cream bg-tiger px-5 py-2 font-display text-xl text-ink"
-                  >Chart <span class="ml-2 font-sans text-lg" aria-hidden="true">↗</span></a
-                >
+          <div class="overflow-hidden rounded-[1.8rem] border border-gold/30 bg-dusk/80 shadow-[0_30px_80px_rgba(0,0,0,0.35)] backdrop-blur-md">
+            <div class="flex flex-col gap-4 border-b border-white/10 px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+              <div>
+                <p class="font-serif text-3xl text-cream">Altai <span class="italic text-gold">/ ETH</span></p>
+                <p class="text-xs font-semibold tracking-wide text-cream/50">Robinhood Chain</p>
               </div>
-              <div class="mb-3 flex items-center gap-3 rounded-2xl border-4 border-cream/30 bg-cream p-2 pl-4">
-                <div class="min-w-0 flex-1">
-                  <p class="text-[11px] font-extrabold uppercase tracking-[0.18em] text-ember">Available CA</p>
-                  <p data-ca class="select-all break-all font-mono text-sm font-bold text-ink sm:text-base">0x2e31512F7559082C9193Fc4B7781b40b583B5D92</p>
+              <div class="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-3 py-2">
+                <div class="min-w-0">
+                  <p class="text-[10px] font-bold uppercase tracking-[0.18em] text-gold">Available CA</p>
+                  <p data-ca class="select-all break-all font-mono text-sm font-semibold">TBA</p>
                 </div>
                 <button
                   type="button"
                   data-copy
                   aria-label="Copy contract address"
-                  class="press shrink-0 rounded-xl border-4 border-ink bg-gold px-4 py-3 font-display text-xl text-ink"
+                  class="rise shrink-0 rounded-xl bg-gold px-3 py-2 text-sm font-extrabold text-ink"
                 >
                   <span data-copy-label>Copy</span>
                 </button>
               </div>
-              <div class="relative h-[440px] overflow-hidden rounded-2xl bg-[#0e0a08] sm:h-[540px]">
-                <p class="absolute inset-0 grid place-items-center px-6 text-center text-sm font-semibold text-cream/70">
-                  Dexscreener embed for $Altai. If the frame stays empty, open the chart.
-                </p>
-                <iframe
-                  data-embed
-                  title="Altai the Tiger chart on Dexscreener"
-                  src="https://dexscreener.com/robinhood/0x2e31512F7559082C9193Fc4B7781b40b583B5D92?embed=1&amp;loadChartSettings=0&amp;trades=0&amp;tabs=0&amp;info=0&amp;chartLeftToolbar=0&amp;chartTheme=dark&amp;theme=dark&amp;chartStyle=1&amp;chartType=usd&amp;interval=15"
-                  class="absolute inset-0 h-full w-full border-0"
-                  loading="lazy"
-                  allowfullscreen
-                ></iframe>
-              </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="relative overflow-hidden bg-ink px-4 py-16 text-center sm:px-6 md:py-20">
-        <div class="h-3 tiger-stripe absolute inset-x-0 top-0"></div>
-        <p class="pointer-events-none absolute inset-x-0 top-1/2 -translate-y-1/2 select-none font-display text-[22vw] leading-none text-tiger/10" aria-hidden="true">
-          ALTAI
-        </p>
-        <div class="relative mx-auto max-w-3xl">
-          <h2 class="poster text-6xl sm:text-7xl">Still early.</h2>
-          <p class="mx-auto mt-4 max-w-xl text-lg font-medium leading-relaxed text-cream">
-            The incident already went viral. The part that is still early is getting in with Robinhood ETH.
-          </p>
-          <div class="mt-7 flex flex-wrap items-center justify-center gap-3">
-            <a
-              data-buy
-              href="https://app.uniswap.org/swap?chain=robinhood&outputCurrency=0x2e31512F7559082C9193Fc4B7781b40b583B5D92"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="press inline-flex items-center justify-center rounded-2xl border-4 border-cream bg-tiger px-6 py-3 font-display text-2xl text-ink"
-              >Buy Now <span class="ml-2 font-sans text-lg" aria-hidden="true">↗</span></a
-            >
-            <a
-              data-chart
-              href="https://dexscreener.com/robinhood/0x2e31512F7559082C9193Fc4B7781b40b583B5D92"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="press inline-flex items-center justify-center rounded-2xl border-4 border-cream bg-cream px-6 py-3 font-display text-2xl text-ink"
-              >Chart <span class="ml-2 font-sans text-lg" aria-hidden="true">↗</span></a
-            >
-            <a
-              href="https://x.com/Altaithe_Tiger"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Altai the Tiger on X"
-              class="press grid h-14 w-14 place-items-center overflow-hidden rounded-full border-4 border-cream bg-ink"
-            >
-              <img src="x.png" alt="" width="554" height="554" class="h-full w-full object-cover" />
-            </a>
-            <a
-              href="https://t.me/Altaithe_Tiger"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Altai the Tiger on Telegram"
-              class="press grid h-14 w-14 place-items-center overflow-hidden rounded-full border-4 border-cream"
-            >
-              <img src="tg.png" alt="" width="975" height="997" class="h-full w-full object-cover" />
-            </a>
+            <div class="relative h-[440px] bg-[#0c0908] sm:h-[540px]">
+              <p class="absolute inset-0 grid place-items-center px-6 text-center text-sm text-cream/50">
+                Dexscreener embed for $Altai. If this stays quiet, open the chart.
+              </p>
+              <iframe
+                data-embed
+                title="Altai the Tiger chart on Dexscreener"
+                src="https://dexscreener.com/robinhood/TBA?embed=1&amp;loadChartSettings=0&amp;trades=0&amp;tabs=0&amp;info=0&amp;chartLeftToolbar=0&amp;chartTheme=dark&amp;theme=dark&amp;chartStyle=1&amp;chartType=usd&amp;interval=15"
+                class="absolute inset-0 h-full w-full border-0"
+                loading="lazy"
+                allowfullscreen
+              ></iframe>
+            </div>
           </div>
         </div>
       </section>
     </main>
 
-    <footer class="bg-ink px-4 pb-28 pt-10 text-cream sm:px-6 md:pb-10">
+    <footer class="border-t border-white/10 bg-dusk/80 px-5 py-12 pb-28 backdrop-blur-md sm:px-8 md:pb-12">
       <div class="mx-auto flex max-w-6xl flex-col gap-8 md:flex-row md:items-end md:justify-between">
         <div>
-          <div class="flex items-center gap-3">
-            <img src="logo.png" alt="" width="680" height="680" class="h-14 w-14 rounded-full border-4 border-tiger object-cover" />
-            <div>
-              <p class="font-display text-3xl leading-none text-tiger">Altai the Tiger</p>
-              <p class="mt-1 text-sm font-extrabold uppercase tracking-[0.18em] text-gold">Symbol Altai · $Altai</p>
-            </div>
-          </div>
-          <p class="mt-4 max-w-xl text-sm font-medium leading-relaxed text-cream/75">
-            $Altai is a meme on Robinhood Chain. Nothing on this page is financial advice. Tickers can be copied. Match the contract on this page before you swap Robinhood ETH.
+          <p class="font-serif text-4xl text-cream">Altai <span class="italic text-gold">the Tiger</span></p>
+          <p class="mt-2 text-xs font-bold uppercase tracking-[0.22em] text-gold">Symbol Altai · $Altai</p>
+          <p class="mt-4 max-w-md text-sm leading-relaxed text-cream/60">
+            $Altai is a meme on Robinhood Chain. Nothing here is financial advice. Tickers can be copied. Match the contract on this page before you swap Robinhood ETH.
           </p>
         </div>
         <div class="flex items-center gap-3">
@@ -707,7 +430,7 @@
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Altai the Tiger on X"
-            class="press grid h-12 w-12 place-items-center overflow-hidden rounded-full border-4 border-cream"
+            class="grid h-11 w-11 place-items-center overflow-hidden rounded-full bg-black ring-1 ring-white/20"
           >
             <img src="x.png" alt="" width="554" height="554" class="h-full w-full object-cover" />
           </a>
@@ -716,7 +439,7 @@
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Altai the Tiger on Telegram"
-            class="press grid h-12 w-12 place-items-center overflow-hidden rounded-full border-4 border-cream"
+            class="grid h-11 w-11 place-items-center overflow-hidden rounded-full ring-1 ring-white/20"
           >
             <img src="tg.png" alt="" width="975" height="997" class="h-full w-full object-cover" />
           </a>
@@ -724,22 +447,22 @@
       </div>
     </footer>
 
-    <div class="fixed inset-x-0 bottom-0 z-40 border-t-4 border-ink bg-cream/95 p-3 backdrop-blur-md md:hidden">
+    <div class="fixed inset-x-0 bottom-0 z-40 border-t border-white/10 bg-dusk/90 p-3 backdrop-blur-xl md:hidden">
       <div class="grid grid-cols-2 gap-2">
         <a
           data-chart
-          href="https://dexscreener.com/robinhood/0x2e31512F7559082C9193Fc4B7781b40b583B5D92"
+          href="https://dexscreener.com/robinhood/TBA"
           target="_blank"
           rel="noopener noreferrer"
-          class="press inline-flex items-center justify-center rounded-xl border-4 border-ink bg-white py-2.5 font-display text-xl text-ink"
+          class="inline-flex items-center justify-center rounded-full border border-white/20 py-2.5 text-sm font-extrabold text-cream"
           >Chart</a
         >
         <a
           data-buy
-          href="https://app.uniswap.org/swap?chain=robinhood&outputCurrency=0x2e31512F7559082C9193Fc4B7781b40b583B5D92"
+          href="https://app.uniswap.org/swap?chain=robinhood&outputCurrency=TBA"
           target="_blank"
           rel="noopener noreferrer"
-          class="press inline-flex items-center justify-center rounded-xl border-4 border-ink bg-tiger py-2.5 font-display text-xl text-ink"
+          class="inline-flex items-center justify-center rounded-full bg-tiger py-2.5 text-sm font-extrabold text-ink"
           >Buy Now</a
         >
       </div>
@@ -749,10 +472,9 @@
 
     <script>
       // One place to drop the live contract. Buy, chart, embed, and copy all follow it.
-      const CA = "0x2e31512F7559082C9193Fc4B7781b40b583B5D92";
+      const CA = "TBA";
 
-      const buyUrl =
-        "https://app.uniswap.org/swap?chain=robinhood&outputCurrency=" + encodeURIComponent(CA);
+      const buyUrl = "https://app.uniswap.org/swap?chain=robinhood&outputCurrency=" + encodeURIComponent(CA);
       const chartUrl = "https://dexscreener.com/robinhood/" + encodeURIComponent(CA);
       const embedUrl =
         chartUrl +
